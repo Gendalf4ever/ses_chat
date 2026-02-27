@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "714944573916",
+    "project_id": "seschat-a86ac",
+    "storage_bucket": "seschat-a86ac.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714944573916:android:4cc899903e34ef1171df19",
+        "android_client_info": {
+          "package_name": "com.example.ses_chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0SPc85FaPRsiFH8WxtVEdl2pVd3eTo2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
