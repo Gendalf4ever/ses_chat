@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:ses_chat/components/ses_button.dart';
 import 'package:ses_chat/components/ses_textfield.dart';
+import 'package:ses_chat/services/auth/auth_service.dart';
 
 class RegisterPage extends StatefulWidget {
   final void Function()? onTap;
@@ -17,8 +19,19 @@ class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
-  void  signUp(){
-
+  void  signUp() async{
+      if (passwordController.text != confirmPasswordController.text){
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'Passwords dont match'
+              ),
+             backgroundColor: Colors.red,
+             )
+            );
+            return;
+      }
+      final authService = Provider.of<AuthService>(context, listen: false);
   }
  @override
   Widget build(BuildContext context) {
