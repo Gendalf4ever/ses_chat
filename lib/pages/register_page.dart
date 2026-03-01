@@ -32,6 +32,11 @@ class _RegisterPageState extends State<RegisterPage> {
             return;
       }
       final authService = Provider.of<AuthService>(context, listen: false);
+      try{
+        await authService.signUpWithEmailAndPassword(emailController.text, passwordController.text);
+      }catch (e){
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+      }
   }
  @override
   Widget build(BuildContext context) {
