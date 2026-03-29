@@ -1,6 +1,8 @@
 import "package:flutter/material.dart";
+import "package:provider/provider.dart";
 import "package:ses_chat/components/ses_button.dart";
 import "package:ses_chat/components/ses_textfield.dart";
+import "package:ses_chat/services/auth/auth_service.dart";
 
 class LoginPage extends StatefulWidget {
   final void Function()? onTap;
@@ -18,8 +20,22 @@ class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   //sign in 
-  void signIn(){
-
+  Future<void> signIn() async {
+      final authService = Provider.of<AuthService>(context, listen: false);
+      try{
+        await authService.signInWithEmailAndPassword(
+          emailController.text, 
+          passwordController.text
+          );
+      } catch(e){
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                e.toString()
+                )
+              )
+            );
+      }
   }
   @override
   Widget build(BuildContext context) {
